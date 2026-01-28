@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://7j820bu6akkk"]
+
+[ext_resource type="Texture2D" uid="uid://7b5r7728olg1" path="res://Imagenes/circulo rojo.png" id="1_km4ya"]
+[ext_resource type="Script" uid="uid://dr6gh7cr357es" path="res://Niveles/pick.gd" id="1_qc6jy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ey6jx"]
+radius = 44.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qc6jy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_km4ya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"pick",
+"speed": 5.0
+}]
+
+[node name="pick" type="Area2D"]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("1_qc6jy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ey6jx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.25, 1.21875)
+sprite_frames = SubResource("SpriteFrames_qc6jy")
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

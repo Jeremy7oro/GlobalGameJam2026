@@ -1,0 +1,30 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="game jam"
+run/main_scene="uid://gho3i43lwyj1"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://Imagenes/icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="shapes"
+2d_physics/layer_2="enviroment"
+2d_physics/layer_3="obstacles"
+2d_physics/layer_4="desactivado"
+2d_physics/layer_5="personaje"
+2d_physics/layer_6="pickables"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

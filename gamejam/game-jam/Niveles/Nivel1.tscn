@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://gho3i43lwyj1"]
+
+[ext_resource type="Script" uid="uid://volloqwwyei3" path="res://Niveles/nivel_1.gd" id="1_77p31"]
+[ext_resource type="Texture2D" uid="uid://4jdx2fvg1epk" path="res://Imagenes/cuadradoazul.png" id="1_bdat1"]
+[ext_resource type="Texture2D" uid="uid://7b5r7728olg1" path="res://Imagenes/circulo rojo.png" id="2_585pd"]
+[ext_resource type="Script" uid="uid://bp7l308o8xiia" path="res://Niveles/character_body_2d.gd" id="4_2up02"]
+[ext_resource type="PackedScene" uid="uid://7j820bu6akkk" path="res://Niveles/pick.tscn" id="5_2up02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68tsg"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_68tsg"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yg71"]
+size = Vector2(640, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6vjlt"]
+radius = 29.0
+height = 90.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2up02"]
+size = Vector2(634, 50)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_77p31")
+
+[node name="Cuadrado" type="RigidBody2D" parent="."]
+position = Vector2(576, -2)
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Cuadrado"]
+modulate = Color(1, 1, 1, 0.478431)
+position = Vector2(-12, 42)
+texture = ExtResource("1_bdat1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuadrado"]
+position = Vector2(-12, 42)
+shape = SubResource("RectangleShape2D_68tsg")
+
+[node name="Circulo" type="RigidBody2D" parent="."]
+position = Vector2(536, -98)
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Circulo"]
+modulate = Color(1, 1, 1, 0.537255)
+position = Vector2(-21, 137)
+texture = ExtResource("2_585pd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Circulo"]
+position = Vector2(-21, 137)
+shape = SubResource("CircleShape2D_68tsg")
+
+[node name="Piso" type="StaticBody2D" parent="."]
+position = Vector2(612, 603)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+shape = SubResource("RectangleShape2D_8yg71")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Piso"]
+modulate = Color(1, 0.278431, 1, 1)
+position = Vector2(-2, 2)
+scale = Vector2(10, 1)
+texture = ExtResource("1_bdat1")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(-4, 2)
+collision_layer = 16
+collision_mask = 7
+script = ExtResource("4_2up02")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(357, 518)
+shape = SubResource("CapsuleShape2D_6vjlt")
+
+[node name="Area2D" parent="." instance=ExtResource("5_2up02")]
+position = Vector2(813, 522)
+
+[node name="Piso2" type="StaticBody2D" parent="."]
+position = Vector2(613, 603)
+collision_layer = 4
+collision_mask = 21
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso2"]
+position = Vector2(-6, -234)
+shape = SubResource("RectangleShape2D_2up02")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Piso2"]
+modulate = Color(1, 0.278431, 1, 1)
+position = Vector2(-5, -230.5)
+scale = Vector2(10, 0.859375)
+texture = ExtResource("1_bdat1")
