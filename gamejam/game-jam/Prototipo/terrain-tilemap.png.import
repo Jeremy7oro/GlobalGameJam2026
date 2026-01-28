@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4jdx2fvg1epk"
-path="res://.godot/imported/cuadradoazul.png-0eb7fe492a9a2c7e859208578a50ff37.ctex"
+uid="uid://lvlb2q6a6ub4"
+path="res://.godot/imported/terrain-tilemap.png-a9fb8c14de0e9bb0fd5887a3362e62ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/cuadradoazul.png"
-dest_files=["res://.godot/imported/cuadradoazul.png-0eb7fe492a9a2c7e859208578a50ff37.ctex"]
+source_file="res://Prototipo/terrain-tilemap.png"
+dest_files=["res://.godot/imported/terrain-tilemap.png-a9fb8c14de0e9bb0fd5887a3362e62ae.ctex"]
 
 [params]
 

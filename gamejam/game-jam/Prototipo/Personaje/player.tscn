@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://fem0ujusin1i"]
+
+[ext_resource type="Script" uid="uid://c0lyf8pihl3ab" path="res://Prototipo/Personaje/player.gd" id="1_rm3lv"]
+[ext_resource type="Texture2D" uid="uid://d20fhmij5rjnc" path="res://Pruebas/Imagenes/icon.svg" id="2_cqaqt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xo61q"]
+radius = 41.0
+height = 128.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rm3lv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_cqaqt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xo61q")

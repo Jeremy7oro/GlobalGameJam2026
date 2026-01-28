@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7b5r7728olg1"
-path="res://.godot/imported/circulo rojo.png-64b4694a2ef27df7e66fd3cb2420c1b0.ctex"
+uid="uid://d20fhmij5rjnc"
+path="res://.godot/imported/icon.svg-1789010b05b338cd12e4a8a5fd875155.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imagenes/circulo rojo.png"
-dest_files=["res://.godot/imported/circulo rojo.png-64b4694a2ef27df7e66fd3cb2420c1b0.ctex"]
+source_file="res://Pruebas/Imagenes/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-1789010b05b338cd12e4a8a5fd875155.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

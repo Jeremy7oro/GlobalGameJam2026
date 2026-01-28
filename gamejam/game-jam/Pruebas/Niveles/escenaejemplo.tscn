@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cueneodh0nkg5"]
 
-[ext_resource type="Texture2D" uid="uid://7b5r7728olg1" path="res://Imagenes/circulo rojo.png" id="1_tmn5x"]
-[ext_resource type="Script" uid="uid://by2dsoh65svev" path="res://Niveles/escenaejemplo.gd" id="1_wp8hp"]
+[ext_resource type="Texture2D" uid="uid://7b5r7728olg1" path="res://Pruebas/Imagenes/circulo rojo.png" id="1_tmn5x"]
+[ext_resource type="Script" uid="uid://by2dsoh65svev" path="res://Pruebas/Niveles/escenaejemplo.gd" id="1_wp8hp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wp8hp"]
 radius = 32.0

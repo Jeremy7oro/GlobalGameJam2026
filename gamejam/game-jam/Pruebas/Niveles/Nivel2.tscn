@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4tacaqwpvn5b"]
+
+[ext_resource type="Texture2D" uid="uid://4jdx2fvg1epk" path="res://Pruebas/Imagenes/cuadradoazul.png" id="1_0hkg4"]
+[ext_resource type="Texture2D" uid="uid://7b5r7728olg1" path="res://Pruebas/Imagenes/circulo rojo.png" id="2_44uuh"]
+[ext_resource type="Script" uid="uid://sgldkox23jeo" path="res://Pruebas/Scrips/jugador_2.gd" id="3_kptxf"]
+[ext_resource type="Texture2D" uid="uid://d20fhmij5rjnc" path="res://Pruebas/Imagenes/icon.svg" id="4_xxma6"]
+[ext_resource type="Script" uid="uid://88ycen6g5fls" path="res://Pruebas/Scrips/mascara.gd" id="5_6kcc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyjo1"]
+size = Vector2(64, 64)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i2n6v"]
+bounce = 0.55
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_enoq1"]
+radius = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt01c"]
+size = Vector2(640, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vt01c"]
+radius = 29.0
+height = 90.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0mop"]
+
+[node name="Nivel2" type="Node2D"]
+
+[node name="Cuadrado" type="RigidBody2D" parent="."]
+position = Vector2(632, 206)
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Cuadrado"]
+modulate = Color(1, 1, 1, 0.478431)
+texture = ExtResource("1_0hkg4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cuadrado"]
+shape = SubResource("RectangleShape2D_eyjo1")
+
+[node name="Circulo" type="RigidBody2D" parent="."]
+position = Vector2(586, 59)
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_i2n6v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Circulo"]
+modulate = Color(1, 1, 1, 0.537255)
+texture = ExtResource("2_44uuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Circulo"]
+shape = SubResource("CircleShape2D_enoq1")
+
+[node name="Piso" type="StaticBody2D" parent="."]
+position = Vector2(612, 603)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+shape = SubResource("RectangleShape2D_vt01c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Piso"]
+modulate = Color(1, 0.278431, 1, 1)
+position = Vector2(-2, 2)
+scale = Vector2(10, 1)
+texture = ExtResource("1_0hkg4")
+
+[node name="Jugador2" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(376, 472)
+collision_layer = 16
+collision_mask = 6
+script = ExtResource("3_kptxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="Jugador2"]
+position = Vector2(0.49999833, -0.50000334)
+scale = Vector2(0.46093744, 0.69531244)
+texture = ExtResource("4_xxma6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador2"]
+shape = SubResource("CapsuleShape2D_vt01c")
+
+[node name="Area2D" type="Area2D" parent="Jugador2"]
+position = Vector2(31, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador2/Area2D"]
+shape = SubResource("RectangleShape2D_c0mop")
+
+[node name="Mascara" type="Area2D" parent="."]
+position = Vector2(574, 395)
+collision_mask = 17
+script = ExtResource("5_6kcc8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Mascara"]
+modulate = Color(1, 1, 0.10980392, 1)
+texture = ExtResource("2_44uuh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mascara"]
+shape = SubResource("CircleShape2D_enoq1")
+
+[node name="Label" type="Label" parent="Mascara"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hola"
+
+[connection signal="body_entered" from="Mascara" to="Mascara" method="_on_body_entered"]

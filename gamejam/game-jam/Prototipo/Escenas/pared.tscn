@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://doemlv7kvi5e6"]
+
+[ext_resource type="Texture2D" uid="uid://4jdx2fvg1epk" path="res://Pruebas/Imagenes/cuadradoazul.png" id="1_i7xvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfhor"]
+size = Vector2(64, 64)
+
+[node name="Pared" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bfhor")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_i7xvk")
