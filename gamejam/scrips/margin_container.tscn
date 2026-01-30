@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfdi7sa6b8jpy"]
+
+[ext_resource type="Script" uid="uid://cvqqibbfwybf3" path="res://mascaras_hud.gd" id="1_1ihi3"]
+[ext_resource type="Texture2D" uid="uid://7b5r7728olg1" path="res://Imagenes/circulo rojo.png" id="2_t5oq1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ihi3"]
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+script = ExtResource("1_1ihi3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="mascara" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_t5oq1")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="Timer"]
+texture_filter = 1
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 114.0
+offset_bottom = 22.0
+text = "time left: 00:00"
+label_settings = SubResource("LabelSettings_1ihi3")
