@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dqsbo45pno8jv"]
+
+[ext_resource type="Texture2D" uid="uid://c5807nkodyj6a" path="res://Imagenes/cuadradoazul.png" id="1_bek8y"]
+[ext_resource type="Script" uid="uid://b3dvyw8eriaw0" path="res://Escenas/puerta.gd" id="1_ylh6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gvf5"]
+size = Vector2(20, 116)
+
+[node name="Puerta" type="AnimatableBody2D" unique_id=1098519631]
+script = ExtResource("1_ylh6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1739218189]
+shape = SubResource("RectangleShape2D_8gvf5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1638443552]
+modulate = Color(1, 0, 0.13725491, 0.7176471)
+scale = Vector2(0.3125, 1.8125)
+texture = ExtResource("1_bek8y")

@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cm28uu4lm3nv6"]
+
+[ext_resource type="Texture2D" uid="uid://n41c4gdqio1s" path="res://Imagenes/tiles 1.png" id="1_ubips"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lbsu"]
+texture = ExtResource("1_ubips")
+texture_region_size = Vector2i(50, 50)
+7:2/0 = 0
+7:2/0/terrain_set = 0
+7:2/0/terrain = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+7:2/0/terrains_peering_bit/left_side = 0
+6:2/0 = 0
+6:2/0/terrain_set = 0
+6:2/0/terrain = 0
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+6:2/0/terrains_peering_bit/right_side = 0
+18:0/0 = 0
+18:0/0/terrain_set = 0
+18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, 25, -25, 25)
+18:0/0/terrains_peering_bit/bottom_side = 0
+18:0/0/terrains_peering_bit/bottom_left_corner = 0
+18:0/0/terrains_peering_bit/left_side = 0
+17:0/0 = 0
+17:0/0/terrain_set = 0
+17:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(25, -25, 25, 25, -25, 25)
+17:0/0/terrains_peering_bit/right_side = 0
+17:0/0/terrains_peering_bit/bottom_right_corner = 0
+17:0/0/terrains_peering_bit/bottom_side = 0
+17:3/0 = 0
+17:3/0/terrain_set = 0
+17:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, 25, 25, -25)
+17:3/0/terrains_peering_bit/right_side = 0
+17:3/0/terrains_peering_bit/top_side = 0
+17:3/0/terrains_peering_bit/top_right_corner = 0
+18:3/0 = 0
+18:3/0/terrain_set = 0
+18:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, -25, 25)
+18:3/0/terrains_peering_bit/left_side = 0
+18:3/0/terrains_peering_bit/top_left_corner = 0
+18:3/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSet" id="TileSet_n6b88"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Lladrillos"
+terrain_set_0/terrain_0/color = Color(0.6854195, 0.12903342, 0.2978901, 1)
+sources/0 = SubResource("TileSetAtlasSource_2lbsu")
+
+[node name="Ladrillos" type="TileMapLayer" unique_id=224589208]
+z_index = -2
+tile_set = SubResource("TileSet_n6b88")

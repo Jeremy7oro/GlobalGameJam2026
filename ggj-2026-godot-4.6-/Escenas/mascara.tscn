@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ca5h0pju41pmh"]
+
+[ext_resource type="Script" uid="uid://3j4hm21u7i06" path="res://Scrips/mascara.gd" id="1_1thft"]
+[ext_resource type="Texture2D" uid="uid://tgu6725qbo23" path="res://Imagenes/circulo rojo.png" id="1_2xdvh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1thft"]
+
+[node name="Mascara" type="Area2D" unique_id=1047808367]
+script = ExtResource("1_1thft")
+Mascara = "Amarillo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1816439666]
+shape = SubResource("CircleShape2D_1thft")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=293766776]
+scale = Vector2(0.31249988, 0.31250015)
+texture = ExtResource("1_2xdvh")
+
+[node name="Label" type="Label" parent="." unique_id=1366435647]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -17.0
+grow_horizontal = 2
+text = "body"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

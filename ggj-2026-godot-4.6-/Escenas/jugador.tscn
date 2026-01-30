@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://rlmrmxonrqhx"]
+
+[ext_resource type="Texture2D" uid="uid://d3x328fl5xupj" path="res://Imagenes/icon.svg" id="1_83bx5"]
+[ext_resource type="Script" uid="uid://b8foklmu80ilv" path="res://Scrips/jugador.gd" id="1_pd7u1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omvyu"]
+
+[node name="Jugador" type="CharacterBody2D" unique_id=699855089]
+collision_mask = 3
+script = ExtResource("1_pd7u1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606397761]
+position = Vector2(-4.172325e-07, 4.172325e-07)
+scale = Vector2(0.15625, 0.23437499)
+texture = ExtResource("1_83bx5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=273525239]
+shape = SubResource("CapsuleShape2D_omvyu")
