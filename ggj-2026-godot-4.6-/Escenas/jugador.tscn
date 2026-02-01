@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://cga04w64nox3s" path="res://Imagenes/personaje/saltar/empezando/saltar.png" id="23_yeg5v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_omvyu"]
+radius = 30.0
+height = 184.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjfq1"]
 atlas = ExtResource("23_yeg5v")
@@ -66,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"cayendo",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,7 +82,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -124,7 +126,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -142,109 +144,21 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d88nf")
 }],
-"loop": true,
+"loop": false,
 "name": &"saltar",
-"speed": 5.0
+"speed": 7.0
 }]
 
-[sub_resource type="Animation" id="Animation_g05s7"]
-resource_name = "Idel"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-
-[sub_resource type="Animation" id="Animation_ro7uc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-
-[sub_resource type="Animation" id="Animation_rpwy6"]
-resource_name = "run"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"run"]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7khaw"]
-_data = {
-&"Idel": SubResource("Animation_g05s7"),
-&"RESET": SubResource("Animation_ro7uc"),
-&"run": SubResource("Animation_rpwy6")
-}
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0xu6o"]
-animation = &"Idel"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hs7o0"]
-animation = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_upvg0"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6mk83"]
-advance_mode = 2
-advance_condition = &"run"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dms0x"]
-advance_mode = 2
-advance_condition = &"idel"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pbowv"]
-states/Idel/node = SubResource("AnimationNodeAnimation_0xu6o")
-states/Idel/position = Vector2(330, 79)
-states/run/node = SubResource("AnimationNodeAnimation_hs7o0")
-states/run/position = Vector2(505, 89)
-transitions = ["Start", "Idel", SubResource("AnimationNodeStateMachineTransition_upvg0"), "Idel", "run", SubResource("AnimationNodeStateMachineTransition_6mk83"), "run", "Idel", SubResource("AnimationNodeStateMachineTransition_dms0x")]
-graph_offset = Vector2(12, -2)
-
-[node name="Jugador" type="CharacterBody2D" unique_id=699855089]
+[node name="Jugador" type="CharacterBody2D" unique_id=699855089 node_paths=PackedStringArray("animacion")]
 collision_mask = 3
 script = ExtResource("1_pd7u1")
+animacion = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=273525239]
 shape = SubResource("CapsuleShape2D_omvyu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1192628363]
 sprite_frames = SubResource("SpriteFrames_4yq30")
-animation = &"idle"
+animation = &"saltar"
 autoplay = "idle"
-frame_progress = 0.6055806
 speed_scale = 3.5
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1231222770]
-libraries/ = SubResource("AnimationLibrary_7khaw")
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1628713425]
-tree_root = SubResource("AnimationNodeStateMachine_pbowv")
-anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/idel = false
-parameters/conditions/run = false
